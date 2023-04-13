@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Room",
+    "url": "https://landonhotel.com/images/hotel/intro_room.jpg"
+  },
+  {
+    "name": "Pool",
+    "url": "https://landonhotel.com/images/hotel/intro_pool.jpg"
+  },
+  {
+    "name": "Dining",
+    "url": "https://landonhotel.com/images/hotel/intro_dining.jpg"
+  },
+  {
+    "name": "Attractions",
+    "url": "https://landonhotel.com/images/hotel/intro_attractions.jpg"
+  },
+  {
+    "name": "Wedding",
+    "url": "https://landonhotel.com/images/hotel/intro_wedding.jpg"
+  }
+]
