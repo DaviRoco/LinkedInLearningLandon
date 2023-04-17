@@ -1,6 +1,27 @@
-import ServicesData from "../data/services.json";
-import FacilitiesData from "../data/facilities.json";
+import React, { useState, useEffect } from "react";
 const Hotelinfo = () => {
+  const [servicesData, setServicesData] = useState([]);
+  const [facilitiesData, setFacilitiesData] = useState([]);
+  const loadServicesData = async () => {
+    const resp = await fetch(
+      "https://d1ar9s9ru9.execute-api.us-east-1.amazonaws.com/Production/services"
+    );
+    let jsonData = await resp.json();
+
+    setServicesData(jsonData);
+  };
+  const loadFacilitiesData = async () => {
+    const resp = await fetch(
+      "https://d1ar9s9ru9.execute-api.us-east-1.amazonaws.com/Production/facilities"
+    );
+    let jsonData = await resp.json();
+
+    setFacilitiesData(jsonData);
+  };
+  useEffect(() => {
+    loadServicesData();
+    loadFacilitiesData();
+  });
   return (
     <div className="scene" id="info">
       <article className="heading">
@@ -43,7 +64,7 @@ const Hotelinfo = () => {
             your stay comfortable, and your experience one-of-a-kind.
           </p>
           <ul>
-            {ServicesData.map((item) => (
+            {servicesData.map((item) => (
               <li>{item.service}</li>
             ))}
           </ul>
@@ -56,7 +77,7 @@ const Hotelinfo = () => {
             needs:
           </p>
           <ul>
-            {FacilitiesData.map((item) => (
+            {facilitiesData.map((item) => (
               <li>{item.facility}</li>
             ))}
           </ul>

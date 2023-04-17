@@ -1,11 +1,24 @@
-import GalleryData from "../data/gallery.json";
+import React, { useState, useEffect } from "react";
+
 const Welcome = () => {
+  const [galleryData, setGalleryData] = useState([]);
+  const loadGalleryData = async () => {
+    const resp = await fetch(
+      "https://d1ar9s9ru9.execute-api.us-east-1.amazonaws.com/Production/gallery"
+    );
+    let jsonData = await resp.json();
+
+    setGalleryData(jsonData);
+  };
+  useEffect(() => {
+    loadGalleryData();
+  });
   return (
     <div className="scene" id="welcome">
       <article className="content">
         <div className="gallery">
-          {GalleryData.map((image) => {
-            if (image.name === "Wedding") {
+          {galleryData.map((image) => {
+            if (image.name === "Attractions") {
               return (
                 <img
                   className="hidesm"
